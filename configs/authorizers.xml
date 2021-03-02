@@ -117,6 +117,7 @@
         NOTE: Any identity mapping rules specified in nifi.properties will also be applied to the user identities.
             Group names are not mapped.
     -->
+        <!--
     {{- if .Values.auth.ldap.enabled}}
     <userGroupProvider>
         <identifier>ldap-user-group-provider</identifier>
@@ -155,7 +156,7 @@
         <property name="Group Member Attribute - Referenced User Attribute"></property>
     </userGroupProvider>
     {{- end}}
-
+    -->
     <!--
         The CompositeUserGroupProvider will provide support for retrieving users and groups from multiple sources.
         - User Group Provider [unique key] - The identifier of user group providers to load from. The name of
@@ -164,6 +165,7 @@
             NOTE: Any identity mapping rules specified in nifi.properties are not applied in this implementation. This behavior
             would need to be applied by the base implementation.
     -->
+        <!--
     {{- if .Values.auth.ldap.enabled}}
     <userGroupProvider>
         <identifier>composite-configurable-user-group-provider</identifier>
@@ -172,6 +174,7 @@
         <property name="User Group Provider 1">ldap-user-group-provider</property>
     </userGroupProvider>
     {{- end}}
+    -->
 
     <!--
         The CompositeConfigurableUserGroupProvider will provide support for retrieving users and groups from multiple sources.
@@ -268,6 +271,7 @@
             NOTE: Any identity mapping rules specified in nifi.properties will also be applied to the node identities,
             so the values should be the unmapped identities (i.e. full DN from a certificate).
     -->
+        <!--
     {{- if .Values.auth.ldap.enabled}}
     <authorizer>
         <identifier>file-provider</identifier>
@@ -279,4 +283,5 @@
 
     </authorizer>
     {{- end}}
+    -->
 </authorizers>
